@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BuildDashboard</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+ 
+  
+ <script>
+
+     function reloadRecordsJson() {
+       console.log('loading file .... ')
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = 'assets/records.js';
+      script.id="records"
+      script.onload = function(){
+        localStorage.setItem('records', JSON.stringify(records));
+
+      };
+       document.body.appendChild(script);
+ 
+  }
+  </script>
+</head>
+<body class="bg-light">
+  <app-root></app-root>
+</body>
+</html>

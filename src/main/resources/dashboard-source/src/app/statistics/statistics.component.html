@@ -1,0 +1,44 @@
+<div class="form-group">
+  <div class="row">
+    <div class="col-lg-4  text-right ">
+      <span style="margin:auto">
+          Calculate the build time for period of 
+      </span>
+    </div>
+
+    <div class="col-lg-1"> 
+      <input type="number" [(ngModel)]="numberOfUnits" max="{{maxValue}}" onchange="reloadRecordsJson()" (change)="calcualte()" min="1" class="form-control">
+     </div>
+
+    <div class="col-lg-4">
+      <select class="form-control "  [(ngModel)]="selectedUnitIndex" onchange="reloadRecordsJson()"  (change)="prepareMaxValue();calcualte()"  >  
+         <option *ngFor="let unit of units;index as i" [value]="i" >{{unit.name}}</option>
+      </select>
+    </div>
+
+    <div class="col-lg-1"> 
+       <button class="btn btn-primary " id="refresh"  onclick="reloadRecordsJson()">Refresh</button>
+     </div>
+     
+  </div>
+
+  Total Clean and Build duration is 
+  <br/>
+  Hours  : {{duration.hours}} <br>
+  Minutes: {{duration.minutes}}<br>
+  Seconds: {{duration.seconds}}<br>
+</div>
+
+  <br/>
+  <div *ngFor="let childModule of duration.children as childModule">
+    <div>
+      {{childModule.name}}
+    </div>
+    <div>
+        Hours  : {{childModule.hours}} <br>
+        Minutes: {{childModule.minutes}}<br>
+        Seconds: {{childModule.seconds}}<br>
+    </div>
+    <hr/>
+
+  </div>
