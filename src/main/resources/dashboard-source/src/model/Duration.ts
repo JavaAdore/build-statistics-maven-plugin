@@ -2,6 +2,8 @@ export class Duration {
 
     public name:string;
 
+    public numberOfBuildTimes:number=0;
+
     public hours:number =0;
     public minutes:number = 0;
     public seconds:number =0;
@@ -24,9 +26,14 @@ export class Duration {
         if(durtaion.seconds!=null)
         {
             this.seconds += durtaion.seconds;   
-         }
-
+        }  
         return this;
+    }
+
+    increaseNumberOfBuildTimes()
+    {
+        this.numberOfBuildTimes++;
+
     }
 
    

@@ -87,6 +87,7 @@ public class BuildStatisticsMavenMojo extends AbstractMojo {
 	private MavenSession session;
 
 	public void execute() throws MojoExecutionException {
+		
 		init();
 
 		validateStatisticsLocationDirectory();
@@ -102,7 +103,7 @@ public class BuildStatisticsMavenMojo extends AbstractMojo {
 	private void displayDashboardLink() {
 
 		getLog().info("to view buil duration statistics kindly visit the following link");
-		getLog().info(STAT_WEBAPP_DIRECTORY_PATH+File.separator+"index.html");
+		getLog().info(new String(STAT_WEBAPP_DIRECTORY_PATH+File.separator+"index.html").replace("\\\\", "\\"));
 
 	}
 

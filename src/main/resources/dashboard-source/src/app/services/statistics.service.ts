@@ -42,6 +42,7 @@ export class StatisticsService {
        console.log()
       if(  parseFloat(timestamp) >startDate.getTime()  )
       {
+        parentDuration.increaseNumberOfBuildTimes();
         var build =  result.builds[timestamp];        
         var endDate = build.endDate;
         var milliseconds = parseFloat(endDate)- parseFloat(timestamp);
@@ -59,19 +60,22 @@ export class StatisticsService {
 
       var moduleBuilds=  result.modulesBuildMap[moduleName];
       diff=0;
+      let numberOfBuildTimes=0;
+
       moduleBuilds.forEach(timestamp => {
-       
           if( parseFloat(timestamp)>=startDate.getTime() )
           {
             var build =  result.builds[timestamp];        
             var endDate = build.endDate;
             var milliseconds = parseFloat(endDate)-parseFloat(timestamp);
             diff+=milliseconds;
+            numberOfBuildTimes++;
           }
 
         });
         var duration = this.getDuration(diff);
         duration.name=moduleName;
+        duration.numberOfBuildTimes = numberOfBuildTimes;
         parentDuration.children.push(duration);
       })
 

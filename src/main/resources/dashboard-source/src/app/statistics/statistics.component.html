@@ -24,20 +24,22 @@
 
   Total Clean and Build duration is 
   <br/>
+  Number Of Build Times : {{duration.numberOfBuildTimes}}<br/>
   Hours  : {{duration.hours}} <br>
   Minutes: {{duration.minutes}}<br>
   Seconds: {{duration.seconds}}<br>
 </div>
 
   <br/>
-  <div *ngFor="let childModule of duration.children as childModule">
+  <div *ngFor="let childModuleDurtaion of duration.children as childModuleDurtaion">
     <div>
-      {{childModule.name}}
+      {{childModuleDurtaion.name}}
     </div>
     <div>
-        Hours  : {{childModule.hours}} <br>
-        Minutes: {{childModule.minutes}}<br>
-        Seconds: {{childModule.seconds}}<br>
+        Number Of Build Times : {{childModuleDurtaion.numberOfBuildTimes}}<br/>
+        Hours  : {{childModuleDurtaion.hours}} <br>
+        Minutes: {{childModuleDurtaion.minutes}}<br>
+        Seconds: {{childModuleDurtaion.seconds}}<br>
     </div>
     <hr/>
 
